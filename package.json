@@ -1,0 +1,55 @@
+{
+  "name": "@phoenixreisen/header",
+  "version": "2.0.1",
+  "description": "Standard-Header für diverse Web Applikationen von Phoenix Reisen",
+  "homepage": "https://design-system.phoenixreisen.net",
+  "main": "dist/index.m.js",
+  "types": "dist/index.m.d.ts",
+  "module": "src/index.m.ts",
+  "scripts": {
+    "prepublish": "npm test",
+    "publish:example": "npx gh-pages -d example",
+    "test": "ospec --preload ./test-setup.js",
+    "pretest": "del-cli ./dist && npm run copy:img && npm run compile:ts && npm run compile:js && npm run compile:scss && npm run compile:example",
+    "posttest": "del-cli ./test",
+    "compile:example": "npx rollup -c",
+    "compile:ts": "npx tsc --build tsconfig.json",
+    "compile:js": "npx babel ./dist/ --out-dir ./test/",
+    "compile:scss": "npx sass --no-source-map ./src:./dist",
+    "copy:img": "npx copyfiles -f ./src/favicon.png ./src/phx.logo.svg ./dist"
+  },
+  "author": "Phoenix Reisen <it@phoenixreisen.com>",
+  "contributors": [
+    "Phoenix Reisen <it@phoenixreisen.com>",
+    "Fabian Marcus <f.marcus@phoenixreisen.com>"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phoenixreisen/header"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "mithril": "^2.0.4"
+  },
+  "devDependencies": {
+    "@types/mithril": "^2.0.3",
+    "babel": "^6.23.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-file-loader": "^2.0.0",
+    "babel-plugin-inline-svg": "^1.1.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "del-cli": "^3.0.1",
+    "gh-pages": "^3.1.0",
+    "jsdom": "^16.4.0",
+    "mithril-node-render": "^3.0.0",
+    "mithril-query": "^3.1.0",
+    "ospec": "^4.1.1",
+    "rollup": "^2.26.4",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-url": "^3.0.1",
+    "tslib": "^2.0.1",
+    "typescript": "^3.9.7"
+  }
+}
