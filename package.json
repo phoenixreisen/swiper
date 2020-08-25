@@ -1,7 +1,7 @@
 {
   "name": "@phoenixreisen/swiper",
   "version": "0.0.1",
-  "description": "Mithril-Wrapper für Swiper. Ruft Swiper mit einer bestimmten Konfiguration auf. Styles kommen aus dem Design-System.",
+  "description": "Vorkonfigurierter Mithril-Wrapper für Swiper. Styles kommen aus dem Design-System.",
   "homepage": "https://design-system.phoenixreisen.net",
   "main": "dist/swiper.m.js",
   "types": "dist/swiper.m.d.ts",
