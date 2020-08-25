@@ -1,32 +1,18 @@
-import {Header, Topbar} from '../src/index.m';
+import {Slider} from '../src/swiper.m';
 import m from 'mithril';
 
-const toggleNav = (state) => {
-    state.open = !state.open;
-};
+// Beispiel-Slide-Content
+const Slide = m("article", {"class":"slide"}, "Slide Content");
 
-const Root = {
-
-    oninit({state}) {
-        state.open = false;
-    },
-
+const Root: m.Component<{}> = {
     view({state}) {
         return ([
-            m('div', {class: 'wrapper wrapper--large'},
-                m(Header, {
-                    toggleNav: () => toggleNav(state),
-                    version: 'Beispiel für Header & Sticky Topbar',
-                }),
-            ),
-            m(Topbar, {
-                name: 'Phoenix Demo App',
-                backUrl: 'https://www.phoenixreisen.com',
-                toggleNav: () => toggleNav(state),
-                toggleAvatar: () => toggleNav(state),
+            m(Slider, {
+                parentState: state,
+                slides: [Slide, Slide, Slide]
             }),
         ]);
     },
-} as any;
+};
 
 m.mount(document.querySelector('.example-app'), Root);

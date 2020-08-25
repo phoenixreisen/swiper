@@ -1,6 +1,7 @@
+import resolve from "rollup-plugin-node-resolve";
 import typescript from 'rollup-plugin-typescript';
 import commonjs from 'rollup-plugin-commonjs';
-import url from 'rollup-plugin-url';
+import css from 'rollup-plugin-css-only';
 
 export default {
     input: './docs/index.ts',
@@ -10,8 +11,9 @@ export default {
         format: 'iife',
     },
     plugins: [
+        css(),
         typescript(),
         commonjs(),
-        url({limit: 0}),
+        resolve(),
     ]
 }
