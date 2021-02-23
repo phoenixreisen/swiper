@@ -11,7 +11,7 @@ export default {
         format: 'iife',
     },
     plugins: [
-        css(),
+        css({ output: 'example.min.css' }),
         typescript(),
         commonjs(),
         resolve(),
