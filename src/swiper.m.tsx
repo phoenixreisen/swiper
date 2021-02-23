@@ -1,3 +1,5 @@
+/** @jsx m */
+
 import Swiper, {Navigation, Pagination, Scrollbar} from 'swiper';
 import 'swiper/swiper-bundle.css';
 import m from 'mithril';
