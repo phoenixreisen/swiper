@@ -1,11 +1,13 @@
 /** @jsx m */
 
 import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
-import 'swiper/css';
-import 'swiper/css/scrollbar';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import m from 'mithril';
+
+// Styles
+// import 'swiper/css';
+// import 'swiper/css/scrollbar';
+// import 'swiper/css/navigation';
+// import 'swiper/css/pagination';
 
 Swiper.use([Navigation, Pagination, Scrollbar]);
 
@@ -49,7 +51,7 @@ export const Slider: m.Component<AttrProps, StateProps> = {
     },
 
     onupdate({state}: m.Vnode<AttrProps, StateProps>) {
-        const {slider} = state;
+        const { slider } = state;
         slider.update?.();
     },
 
