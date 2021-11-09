@@ -1,8 +1,12 @@
 {
 	"compilerOptions": {
-		"outDir": "./dist/",
 		"target": "ES5",
+		"outDir": "./dist/",
 
+		"lib": [
+			"dom",
+			"ESNext"
+		],
 		"jsx": "react",
 		"jsxFactory": "m",
 		"module": "ESNext",
@@ -27,6 +31,7 @@
 	"include": [
 	  "src/**/*.ts",
 	  "src/**/*.tsx",
+	  "src/**/*.d.ts",
 	],
 	"exclude": [
 		"node_modules"

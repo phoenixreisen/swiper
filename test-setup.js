@@ -1,5 +1,4 @@
-import register from 'ignore-styles';
-import Slider from 'swiper';
+import ignore from 'ignore-styles';
 import jsdom from 'jsdom';
 import test from 'ospec';
 
@@ -11,11 +10,11 @@ const dom = new jsdom.JSDOM('', {
 Object.assign(global, {
     window: dom.window,
     document: dom.window.document,
+    HTMLElement: dom.window.HTMLElement,
     requestAnimationFrame: dom.window.requestAnimationFrame,
 });
 
-const ignore = register.default;
-ignore(['.css', '.sass', '.scss']);
+ignore.default(['.css', '.sass', '.scss']);
 
 test.after(function() {
     dom.window.close();

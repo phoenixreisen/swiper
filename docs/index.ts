@@ -1,18 +1,15 @@
-import {Slider} from '../src/swiper.m';
+import { Slider } from '../src/swiper.m';
 import m from 'mithril';
 
 // Beispiel-Slide-Content
 const Slide = m("article", {"class":"slide"}, "Slide Content");
 
 const Root: m.Component<{}> = {
-    view({state}) {
+    view() {
         return ([
-            m(Slider, {
-                parentState: state,
-                slides: [Slide, Slide, Slide]
-            }),
+            m(Slider, { slides: [Slide, Slide, Slide] }),
         ]);
     },
 };
 
-m.mount(document.querySelector('.example-app'), Root);
+m.mount(document.querySelector('.example-app') as Element, Root);

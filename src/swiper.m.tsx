@@ -1,20 +1,12 @@
-/** @jsx m */
-
+import './swiper.style.scss';
 import Swiper, { Navigation, Pagination, Scrollbar } from 'swiper';
 import m from 'mithril';
 
-// Styles
-// import 'swiper/css';
-// import 'swiper/css/scrollbar';
-// import 'swiper/css/navigation';
-// import 'swiper/css/pagination';
-
-Swiper.use([Navigation, Pagination, Scrollbar]);
+Swiper.use([ Navigation, Pagination, Scrollbar ]);
 
 //--- Types -----
 
 type AttrProps = {
-    parentState: any,
     slides: Array<m.Vnode<any, any>>,
 }
 
@@ -27,7 +19,7 @@ type StateProps = {
 export const Slider: m.Component<AttrProps, StateProps> = {
 
     oncreate(vnode: m.VnodeDOM<AttrProps, StateProps>) {
-        const { state, attrs, dom } = vnode;
+        const { state } = vnode;
         state.slider = new Swiper('.swiper', {
             pagination: {
                 clickable: true,
@@ -47,7 +39,6 @@ export const Slider: m.Component<AttrProps, StateProps> = {
             shortSwipes: false,
             simulateTouch: false,
         });
-        Object.assign(attrs.parentState, {sliderEl: dom});
     },
 
     onupdate({state}: m.Vnode<AttrProps, StateProps>) {

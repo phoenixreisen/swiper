@@ -1,8 +1,7 @@
-import m from 'mithril';
+import Slider from "../dist/swiper.m.js";
 import mq from "mithril-query";
 import test from "ospec";
-
-import Slider from '../dist/swiper.m.js';
+import m from "mithril";
 
 test.spec('Slider Wrapper', () => {
     const Slide = m("article", { "class":"slide" }, "Slide Content");
